@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    public float movementSpeed = 5.0f;
+    public float moveSpeed = 5.0f;
     
-    Vector2 movement = new Vector2();
+    Vector2 movement;
+    Vector2 mousePos;
+
     Rigidbody2D rb2D;
+    public Camera cam;
 
     // Start is called before the first frame update
     private void Start()
@@ -18,19 +20,19 @@ public class Player : MonoBehaviour
 
     private void Update() 
     {
-        
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
     
     // Update is called once per frame
     void FixedUpdate()
-    {
-        rb2D.velocity = new Vector2(0, 0);
-
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
-        
-        movement.Normalize();
-        
-        rb2D.velocity = movement * movementSpeed * Time.fixedDeltaTime;
+    {   
+        rb2D.MovePosition(rb2D.position + movement * moveSpeed * Time.fixedDeltaTime);
+    
+        Vector2 lookDir = mousePos - rb2D.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        rb2D.rotation = angle;
     }
 }
