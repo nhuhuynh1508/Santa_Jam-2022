@@ -29,5 +29,6 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb2D = bullet.GetComponent<Rigidbody2D>();
         rb2D.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        Destroy(bullet, 10);
     }
 }
