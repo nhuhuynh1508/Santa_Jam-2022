@@ -5,9 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
+    public float MaxHealth = 100.0f;
+    public float currentHealth;
     
-    Vector2 movement;
-    Vector2 mousePos;
+    protected Vector2 movement;
+    protected Vector2 mousePos;
 
     Rigidbody2D rb2D;
 
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        currentHealth = MaxHealth;
     }
 
     private void Update() 
@@ -28,4 +31,25 @@ public class Player : MonoBehaviour
     {
         rb2D.MovePosition(rb2D.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+    void TakeDamage(float Damage)
+    {
+        currentHealth -= Damage;
+
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TakeDamage(collision.gameObject.GetComponent<Enemy>().damage);
+
+        if (currentHealth <= 0)
+        {
+            //move to game over
+        }
+    }
+
+  
 }

@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class RPlayer : Player
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
 
     public float bulletForce = 20.0f;
+    public float attacksPerSecond = 4f;
+    private float secondsToAttack = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        secondsToAttack -= Time.deltaTime;
+        if (secondsToAttack <= 0)
         {
-            Shoot();
+            if (Input.GetButton("Fire1"))
+            {
+                Shoot();
+                secondsToAttack = 1 / attacksPerSecond;
+            }
         }
     }
 
