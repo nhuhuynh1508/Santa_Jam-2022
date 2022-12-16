@@ -376,11 +376,13 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/Scripts/Enemy.cs"
+"Assets/Scripts/Enemies/Adware.cs"
+"Assets/Scripts/Enemies/Enemy.cs"
+"Assets/Scripts/Enemies/EnemySpawner.cs"
 "Assets/Scripts/MovementAnimation.cs"
-"Assets/Scripts/MPlayer.cs"
-"Assets/Scripts/Player.cs"
-"Assets/Scripts/RPlayer.cs"
+"Assets/Scripts/Player/MPlayer.cs"
+"Assets/Scripts/Player/Player.cs"
+"Assets/Scripts/Player/RPlayer.cs"
 "Assets/Scripts/RSkillBulletMovement.cs"
 -langversion:9.0
 

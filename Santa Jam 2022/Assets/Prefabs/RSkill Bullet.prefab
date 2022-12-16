@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 5320286845460377723}
   - component: {fileID: 5320286845460377716}
   - component: {fileID: 5320286845460377717}
+  - component: {fileID: -9165743751996416382}
   m_Layer: 0
   m_Name: RSkill Bullet
   m_TagString: Untagged
@@ -129,6 +130,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &-9165743751996416382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320286845460377726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f110aec187b5085418a8c6e55e38fbd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: {fileID: 5320286845460377723}
+  rotateSpeed: 0
 --- !u!1 &6788654948178803287
 GameObject:
   m_ObjectHideFlags: 0
