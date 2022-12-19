@@ -58,12 +58,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\RPlayer.cs" />
     <Compile Include="Assets\Scripts\MovementAnimation.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Adware.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Spyware.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\RSkillBulletMovement.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemySpawner.cs" />
-    <Compile Include="Assets\Scripts\Player\MPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

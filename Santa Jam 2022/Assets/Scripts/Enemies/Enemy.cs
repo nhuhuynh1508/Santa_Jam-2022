@@ -10,15 +10,12 @@ public class Enemy : MonoBehaviour
 
     public GameObject player;
     private float distance;
+    public float damage;
 
     [SerializeField] public float maxHealth = 100.0f;
     public float currentHealth;
 
-    //public Image healthBar;
-
-    public float damage;
-
- 
+    public float timetoSpawn;
 
     Rigidbody2D rb2D;
 
@@ -30,8 +27,6 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("RangePlayer");
     }
 
-
-  
     // Update is called once per frame
     public void TakeDamage(float damage)
     {
@@ -54,9 +49,9 @@ public class Enemy : MonoBehaviour
     // enemies move toward the player every update
     public void Update()
     {
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        // direction
-        Vector2 direction = player.transform.position - transform.position;
+        //distance = Vector2.Distance(transform.position, player.transform.position);
+        //// direction
+        //Vector2 direction = player.transform.position - transform.position;
         // move toward the player 
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
