@@ -1,3 +1,9 @@
+/*
+    Player.cs' derivation.
+    Ranged Player.
+    Handle Shooting logic.
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,9 +25,6 @@ public class RPlayer : Player
     
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
         secondsToAttack -= Time.deltaTime;
         if (secondsToAttack <= 0)
         {

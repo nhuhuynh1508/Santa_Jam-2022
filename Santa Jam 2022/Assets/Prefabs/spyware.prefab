@@ -97,11 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b8c8254bd008c4ab8a63a0f574c8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  startSpeed: 0
+  currentHealth: -1
+  damage: -1
   player: {fileID: 0}
-  damage: 0
-  maxHealth: 100
-  currentHealth: 0
-  timetoSpawn: 0
+  timetoSpawn: -1
   spywarePrefab: {fileID: 6191081940731232951}

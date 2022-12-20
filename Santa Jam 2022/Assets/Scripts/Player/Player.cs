@@ -21,15 +21,12 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void Update() 
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-    }
-    
     // Update is called once per frame
     void FixedUpdate()
     {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
         rb2D.MovePosition(rb2D.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 

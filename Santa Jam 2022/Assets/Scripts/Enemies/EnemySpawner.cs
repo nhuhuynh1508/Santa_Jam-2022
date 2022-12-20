@@ -5,14 +5,22 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject prefab;
+    private GameObject spyWarePrefab;
+    [SerializeField]
+    private GameObject spyWareContainer;
 
     [SerializeField]
     public int spawnCount = 4;
-    private float spawnTime;
-    private float spawnDelay;
+    private float spawnTime = 3f;
+    private float spawnDelay = 1f;
 
     private int remainingEnemies = 0;
+
+    public static EnemySpawner instance;
+    private void Awake() 
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -28,7 +36,9 @@ public class EnemySpawner : MonoBehaviour
 
         for (int count = spawnCount; count > 0; --count)
         {
-            GameObject clone = Instantiate(prefab, transform.position, transform.rotation);
+            Vector2 postospawn = new Vector2(Random.Range(-5.5f, 5.5f), Random.Range(-3.0f, 3.0f));
+            GameObject clone = Instantiate(spyWarePrefab, postospawn, transform.rotation);
+            clone.transform.parent = spyWareContainer.transform;
 
             // Detect when an enemy gets destroyed
             DestroyEventEmitter destroyEventEmitter = clone.AddComponent<DestroyEventEmitter>();
@@ -54,6 +64,12 @@ public class EnemySpawner : MonoBehaviour
             Debug.Log("All enemies have been destroyed");
         }
     }
+
+
+
+
+
+    // EVENT CLASS
     public class DestroyEventEmitter : MonoBehaviour
     {
         public delegate void OnObjectDestroyedEventHandler(DestroyEventEmitter emitter);
@@ -63,6 +79,10 @@ public class EnemySpawner : MonoBehaviour
             OnObjectDestroyedEvent?.Invoke(this);
         }
     }
+
+
+
+
 }
 
 

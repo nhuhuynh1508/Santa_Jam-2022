@@ -6,12 +6,12 @@ public class Spyware : Enemy
 {
     public GameObject spywarePrefab;
 
-    // Start is called before the first frame update
-    void Start()
+
+
+    //CONSTRUCTOR
+    public Spyware() : base(2.0f, 100.0f, 1.0f, 5.0f)
     {
-        maxHealth = 100f;
-        speed = 2.0f;
-        player = GameObject.FindGameObjectWithTag("RangePlayer");
+        // DO SOMETHING
     }
 
 
