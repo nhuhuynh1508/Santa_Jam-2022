@@ -5,12 +5,10 @@ using UnityEngine;
 public class Spyware : Enemy
 {
     //CONSTRUCTOR
-    public Spyware() : base(2.0f, 100.0f, 1.0f)
+    public Spyware() : base(2.0f, 3f, 1.0f, 3f)
     {
         // DO SOMETHING
     }
-
-
 }
 
    

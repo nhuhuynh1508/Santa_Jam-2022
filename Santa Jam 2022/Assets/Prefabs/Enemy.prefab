@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &5492741522877531278
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.011579335, y: -0.008897901}
@@ -124,9 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67bbd964a12083442a24d77d2079f7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.917
-  startSpeed: 0
-  player: {fileID: 0}
-  maxHealth: 100
   currentHealth: 0
   damage: 50

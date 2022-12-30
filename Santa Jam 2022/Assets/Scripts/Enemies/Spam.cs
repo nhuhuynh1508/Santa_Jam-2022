@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spam : Enemy
 {
-    public Spam() : base(4f, 1f, 1f)
+    public Spam() : base(4f, 1f, 1f, 1f)
     {
 
     }

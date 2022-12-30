@@ -387,7 +387,7 @@
 "Assets/Scripts/Player/Player.cs"
 "Assets/Scripts/Player/RPlayer.cs"
 "Assets/Scripts/RSkillBulletMovement.cs"
-"Assets/TrojanBullet.cs"
+"Assets/Scripts/TrojanBullet.cs"
 -langversion:9.0
 
 /deterministic

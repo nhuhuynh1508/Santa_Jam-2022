@@ -290,7 +290,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -325,8 +325,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5320286845460377726, guid: dfb8c912795667d4dada1278c786c8f6, type: 3}
   bulletForce: 25
   attacksPerSecond: 5
-  numberOfProjectiles: 0
-  projectiles: {fileID: 0}
+  skillBulletPrefab: {fileID: 5320286845460377726, guid: 9016c96a819147e4b9ec28fb8c419bba, type: 3}
+  skillBulletForce: 20
+  skillCooldown: 0.2
+  spread: 45
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1121,7 @@ GameObject:
   - component: {fileID: 1352846484}
   m_Layer: 0
   m_Name: FirePoint
-  m_TagString: Bullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1600,6 +1602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b5df159ca93d64b88fe2842416a2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: 0
+  playerExp: 0
 --- !u!1 &2089892294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,7 +1628,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089892294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.052913, y: -0.99692035, z: 0.0207644}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

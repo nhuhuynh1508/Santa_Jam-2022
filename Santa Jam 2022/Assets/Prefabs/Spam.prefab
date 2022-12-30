@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 121635949910982521}
   - component: {fileID: 678352277328914489}
   - component: {fileID: 5792660328200547080}
-  m_Layer: 0
+  - component: {fileID: -904025392212176169}
+  m_Layer: 6
   m_Name: Spam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c9b647064b147546940a50f6fbdfffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth: 0
+  damage: 1
+--- !u!61 &-904025392212176169
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5792660328200547083}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011579335, y: -0.008897901}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15.47, y: 14.52}
+    newSize: {x: 15.47, y: 14.52}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.849543, y: 15.668276}
+  m_EdgeRadius: 0

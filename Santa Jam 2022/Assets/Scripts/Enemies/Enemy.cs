@@ -10,17 +10,20 @@ public class Enemy : MonoBehaviour
     private float maxHealth;
     public float currentHealth;
 
+    private float exp = 1f;
+
     public float damage;
 
     private GameObject player;
 
 
     // CONSTRUCTOR
-    public Enemy(float speed, float maxHealth, float damage)
+    public Enemy(float speed, float maxHealth, float damage, float exp)
     {
         this.speed = speed;
         this.maxHealth = maxHealth;
-        this.damage = damage;    
+        this.damage = damage;
+        this.exp = exp;
     }
 
 
@@ -69,6 +72,16 @@ public class Enemy : MonoBehaviour
     public virtual void Die()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("A lo?");
+        if (collider.gameObject.tag == "Player Bullet")
+        {
+            TakeDamage(1);
+            Destroy(collider.gameObject);
+        }
     }
 
 }

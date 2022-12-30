@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 699594743747514261}
   - component: {fileID: 102645164154362069}
   - component: {fileID: 699594743747514258}
-  m_Layer: 0
+  - component: {fileID: -5627389623057225735}
+  m_Layer: 6
   m_Name: Trojan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6370059194383817703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3, y: -0.32, z: 0}
-  m_LocalScale: {x: 0.08285, y: 0.08173, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,3 +102,29 @@ MonoBehaviour:
   damage: 1
   bulletPrefab: {fileID: 2917989733512744557, guid: 3e7da6a02f7873a4083ddd7765cb57a4, type: 3}
   bulletForce: 20
+--- !u!61 &-5627389623057225735
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6370059194383817703}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15.47, y: 14.52}
+    newSize: {x: 15.47, y: 14.52}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.849543, y: 15.668276}
+  m_EdgeRadius: 0

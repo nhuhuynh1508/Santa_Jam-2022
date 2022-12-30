@@ -7,7 +7,7 @@ public class Trojan : Enemy
     public GameObject bulletPrefab;
     public float bulletForce = 4f;
 
-    public Trojan() : base(1.5f, 3f, 1f)
+    public Trojan() : base(1.5f, 4f, 1f, 5f)
     {
 
     }

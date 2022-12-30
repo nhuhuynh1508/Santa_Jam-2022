@@ -5,7 +5,7 @@ using UnityEngine;
 public class Adware : Enemy
 { 
     // Update is called once per frame
-    public Adware() : base(2f, 1f, 1f)
+    public Adware() : base(2f, 1f, 1f, 1f)
     {
         
     }
