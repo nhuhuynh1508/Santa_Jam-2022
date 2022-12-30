@@ -57,7 +57,7 @@ public class RPlayer : Player
         Rigidbody2D rb2D = bullet.GetComponent<Rigidbody2D>();
         // add force by multiplied the fire pointed up vector with the bullet force
         // up is the axis where the player is facing
-        rb2D.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        rb2D.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse); 
         Destroy(bullet, 6);
     }
 

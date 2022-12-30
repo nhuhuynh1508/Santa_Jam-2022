@@ -75,12 +75,17 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
-    {
-        Debug.Log("A lo?");
+    { 
         if (collider.gameObject.tag == "Player Bullet")
         {
             TakeDamage(1);
+            collider.gameObject.tag = "Finish";
             Destroy(collider.gameObject);
+        }
+        else if (collider.gameObject.tag == "RangePlayer")
+        {
+
+            Destroy(gameObject);
         }
     }
 
