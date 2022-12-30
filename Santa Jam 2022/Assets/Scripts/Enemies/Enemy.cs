@@ -12,21 +12,15 @@ public class Enemy : MonoBehaviour
 
     public float damage;
 
-    public GameObject player;
-    private float distance;
-
-    public float timetoSpawn;
-
+    private GameObject player;
 
 
     // CONSTRUCTOR
-    public Enemy(float speed, float maxHealth, float damage, float timetoSpawn)
+    public Enemy(float speed, float maxHealth, float damage)
     {
         this.speed = speed;
         this.maxHealth = maxHealth;
-        this.timetoSpawn = timetoSpawn;
-        this.damage = damage;
-    
+        this.damage = damage;    
     }
 
 
@@ -50,7 +44,7 @@ public class Enemy : MonoBehaviour
     private void Movement()
     {
         // distance
-        distance = Vector2.Distance(transform.position, player.transform.position);
+        float distance = Vector2.Distance(transform.position, player.transform.position);
         // direction
         Vector2 direction = player.transform.position - transform.position;
 
@@ -72,9 +66,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Die()
+    public virtual void Die()
     {
-        Debug.Log("Enemy die");
+        
     }
 
 }

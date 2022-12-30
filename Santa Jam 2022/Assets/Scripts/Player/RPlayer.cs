@@ -12,7 +12,6 @@ public class RPlayer : Player
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-
     public float bulletForce = 20.0f;
     public float attacksPerSecond = 4f;
     private float secondsToAttack = 0f;

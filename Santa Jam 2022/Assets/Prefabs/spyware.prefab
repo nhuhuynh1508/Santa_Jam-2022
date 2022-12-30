@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 928146233053102469}
   - component: {fileID: -4472394211972758562}
   m_Layer: 0
-  m_Name: spyware
+  m_Name: Spyware
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
