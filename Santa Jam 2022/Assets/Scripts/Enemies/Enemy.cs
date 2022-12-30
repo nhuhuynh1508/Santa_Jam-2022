@@ -30,18 +30,28 @@ public class Enemy : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("RangePlayer");
+        _Start();
+    }
+
+    public virtual void _Start()
+    {
+
     }
 
     // Update is called once per frame
     public void Update()
     {
         Movement();
+        _Update();
     }
 
+    public virtual void _Update()
+    {
 
+    }
 
     // Movement: use MoveTowards; distance & direction not yet used
     private void Movement()

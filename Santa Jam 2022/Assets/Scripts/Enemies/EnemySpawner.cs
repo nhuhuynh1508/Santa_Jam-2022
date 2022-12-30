@@ -86,6 +86,12 @@ public class EnemySpawner : MonoBehaviour
         {
             secondsToNextWave = secondsPerWave;
             groupsLeft += groupsPerWave;
+
+            currentBiasedPositionIndex += 1;
+            if (currentBiasedPositionIndex >= spawnPositions.Length)
+            {
+                currentBiasedPositionIndex = 0;
+            }
         }
 
         if (groupsLeft > 0)
@@ -165,7 +171,8 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector2 GetSpawnPosition()
     {
-        return spawnPositions[currentBiasedPositionIndex].position;
+        Vector2 offsets = new Vector2(UnityEngine.Random.Range(-spread, spread), UnityEngine.Random.Range(-spread, spread));
+        return (Vector2)spawnPositions[currentBiasedPositionIndex].position + offsets;
     }
 
     /*

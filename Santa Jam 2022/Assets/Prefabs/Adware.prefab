@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   damage: 1
+  rotateSpeed: 360
 --- !u!61 &-4341579773116504812
 BoxCollider2D:
   m_ObjectHideFlags: 0

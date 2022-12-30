@@ -1608,9 +1608,9 @@ MonoBehaviour:
   - {fileID: 1256895957}
   - {fileID: 1223831072}
   biasedChance: 0.85
-  spread: 2
+  spread: 3
+  uselessNumber: 0
   enemiesContainer: {fileID: 1939148934}
-  spawnCount: 4
 --- !u!4 &1609608028
 Transform:
   m_ObjectHideFlags: 0
