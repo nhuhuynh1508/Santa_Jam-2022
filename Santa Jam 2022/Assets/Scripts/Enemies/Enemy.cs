@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     public float damage;
 
+    [SerializeField]
     protected GameObject player;
 
 
@@ -66,7 +67,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Damge system
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         currentHealth -= damage;
 
@@ -98,5 +99,4 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }

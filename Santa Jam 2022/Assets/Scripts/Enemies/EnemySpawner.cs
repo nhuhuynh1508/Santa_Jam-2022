@@ -17,6 +17,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject trojanPrefab;
 
+    public GameObject terminuxPrefab;
+
+
     [Header("What To Spawn")]
     public GroupInfo[] pre10;
     public GroupInfo[] pre20;
@@ -75,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
     public static EnemySpawner instance;
     */
+    private bool isTerminTime = false;
 
 
     private void Update()
@@ -85,7 +89,15 @@ public class EnemySpawner : MonoBehaviour
         if (secondsToNextWave <= 0)
         {
             secondsToNextWave = secondsPerWave;
-            groupsLeft += groupsPerWave;
+
+            if (difficulty < 300)
+            {
+                groupsLeft += groupsPerWave;
+            }
+            else
+            {
+                isTerminTime = true;
+            }
 
             currentBiasedPositionIndex += 1;
             if (currentBiasedPositionIndex >= spawnPositions.Length)
@@ -94,7 +106,11 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        if (groupsLeft > 0)
+        if (isTerminTime)
+        {
+            SpawnBoss();
+        }
+        else if (groupsLeft > 0)
         {
             secondsToNextGroup -= Time.deltaTime;
             if (secondsToNextGroup <= 0)
@@ -103,6 +119,11 @@ public class EnemySpawner : MonoBehaviour
                 Spawn(difficulty);
             }
         }
+    }
+
+    private void SpawnBoss()
+    {
+        Instantiate(terminuxPrefab, GetSpawnPosition(), Quaternion.identity);
     }
 
     private void Spawn(float difficulty)

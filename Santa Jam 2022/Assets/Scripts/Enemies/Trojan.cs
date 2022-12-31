@@ -22,9 +22,4 @@ public class Trojan : Enemy
             Destroy(bullet, 1.5f);
         }
     }
-
-    public void OnBaseRotateFinish()
-    {
-        // transform.rotation = Quaternion.Euler(0, 0, 0);
-    }
 }
