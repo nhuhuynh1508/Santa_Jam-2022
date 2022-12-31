@@ -12,11 +12,6 @@ public class Trojan : Enemy
 
     }
 
-    void Start()
-    {
-        Die();
-    }
-
     public override void Die()
     {
         for (int i = 0; i < 8; i++)
@@ -24,6 +19,12 @@ public class Trojan : Enemy
             float angle = 360 * i / 8;
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, angle));
             bullet.GetComponent<Rigidbody2D>().AddForce(bullet.transform.up * bulletForce);
+            Destroy(bullet, 1.5f);
         }
+    }
+
+    public void OnBaseRotateFinish()
+    {
+        // transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

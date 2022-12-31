@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     public float damage;
 
-    private GameObject player;
+    protected GameObject player;
 
 
     // CONSTRUCTOR
