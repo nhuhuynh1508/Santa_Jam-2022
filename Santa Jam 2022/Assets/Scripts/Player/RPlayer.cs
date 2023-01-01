@@ -26,17 +26,26 @@ public class RPlayer : Player
     public int numberOfBullets = 8;
     public float spread = 45f;
 
-
-    
-    void Update()
+    public override void _Update()
     {
         secondsToAttack -= Time.deltaTime;
         if (secondsToAttack <= 0)
         {
             if (Input.GetButton("Fire1"))
             {
-                Shoot();
-                secondsToAttack = 1 / attacksPerSecond;
+                float asModifier = 1 + ASPerStack * modifiers[Powerup.AttackSpeed];
+                secondsToAttack = 1 / (attacksPerSecond * asModifier);
+
+                
+                float doubleShotChance = DSCPerStack * modifiers[Powerup.DoubleShotChance];
+                if (Random.Range(0f, 1f) < doubleShotChance)
+                {
+                    Shoot(2);
+                }
+                else
+                {
+                    Shoot(1);
+                }
             }
         }
 
@@ -45,20 +54,33 @@ public class RPlayer : Player
         {
             if (Input.GetMouseButton(1))
             {
+                float scModifier = Mathf.Pow(1 - SCPerStack, modifiers[Powerup.SkillCooldown]);
+                secondsToHaveSkill = skillCooldown * scModifier;
+
                 UseSkill();
-                secondsToHaveSkill = skillCooldown;
+                float doubleShotChance = DSCPerStack * modifiers[Powerup.DoubleShotChance];
+                if (Random.Range(0f, 1f) < doubleShotChance)
+                {
+                    Invoke("UseSkill", 0.18f);
+                }
             }
         }
+
+        // Regen health here using RSPerStack and modifiers[Powerup.RegenSpeed]
     }
 
-    void Shoot()
+    void Shoot(int n)
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb2D = bullet.GetComponent<Rigidbody2D>();
-        // add force by multiplied the fire pointed up vector with the bullet force
-        // up is the axis where the player is facing
-        rb2D.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse); 
-        Destroy(bullet, 6);
+        for (int i = 0; i < n; i++)
+        {
+            Vector3 pos = firePoint.position + firePoint.right * 0.6f * (-(n-1) * 0.5f + i);
+            GameObject bullet = Instantiate(bulletPrefab, pos, firePoint.rotation);
+            Rigidbody2D rb2D = bullet.GetComponent<Rigidbody2D>();
+            // add force by multiplied the fire pointed up vector with the bullet force
+            // up is the axis where the player is facing
+            rb2D.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+            Destroy(bullet, 6);
+        }
     }
 
     void UseSkill()

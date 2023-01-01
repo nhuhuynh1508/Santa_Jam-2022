@@ -10,7 +10,8 @@ public class Enemy : MonoBehaviour
     private float maxHealth;
     public float currentHealth;
 
-    private float exp = 1f;
+    [HideInInspector]
+    public float exp = 1f;
 
     public float damage;
 
@@ -76,6 +77,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            FindObjectOfType<GameManager>().OnEnemyDie(this);
             Destroy(gameObject);
         }
     }
