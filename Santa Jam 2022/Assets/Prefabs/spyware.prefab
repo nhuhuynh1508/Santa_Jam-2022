@@ -297,8 +297,8 @@ GameObject:
   - component: {fileID: -4472394211972758562}
   - component: {fileID: 2896302240440825953}
   m_Layer: 6
-  m_Name: Spyware
-  m_TagString: Untagged
+  m_Name: spyware
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: -1
+  exp: 3
   damage: -1
+  player: {fileID: 0}
   rotateSpeed: 120
 --- !u!61 &2896302240440825953
 BoxCollider2D:

@@ -26,8 +26,23 @@ public class RPlayer : Player
     public int numberOfBullets = 8;
     public float spread = 45f;
 
+    [Header("Dash")]
+    public float dashingPower = 5000.0f;
+    public float dashingTime = 0.5f;
+    public float dashingCooldown = 1f;
+    private bool canDash = true;
+    private bool isDashing;
+    [SerializeField] private TrailRenderer tr;
+
+
+
     public override void _Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         secondsToAttack -= Time.deltaTime;
         if (secondsToAttack <= 0)
         {
@@ -64,6 +79,12 @@ public class RPlayer : Player
                     Invoke("UseSkill", 0.18f);
                 }
             }
+        }
+
+        //Dashing
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
         }
 
         // Regen health here using RSPerStack and modifiers[Powerup.RegenSpeed]
@@ -103,5 +124,25 @@ public class RPlayer : Player
         float tx = v.x;
         float ty = v.y;
         return new Vector2((cos * tx) - (sin * ty), (sin * tx) + (cos * ty));
+    }
+
+
+
+    // Dash Numerator
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        playerColliderBox.enabled = false;
+
+        rb2D.AddForce(rb2D.position + movement * dashingPower);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+
+        isDashing = false;
+        playerColliderBox.enabled = true;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 }

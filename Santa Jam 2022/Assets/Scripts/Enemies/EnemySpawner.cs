@@ -152,7 +152,8 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < group.quantity; i++)
         {
-            Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
+            GameObject clone = Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
+            clone.transform.parent = enemiesContainer.transform;
         }
     }
 

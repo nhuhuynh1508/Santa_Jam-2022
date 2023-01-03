@@ -21,7 +21,9 @@ public class Player : MonoBehaviour
     protected Vector2 movement;
     protected Vector2 mousePos;
 
-    Rigidbody2D rb2D;
+    protected Rigidbody2D rb2D;
+
+    protected BoxCollider2D playerColliderBox;
 
     protected Dictionary<Powerup, int> modifiers;
     public static float MSPerStack = 0.12f;
@@ -30,11 +32,18 @@ public class Player : MonoBehaviour
     public static float SCPerStack = 0.2f;
     public static float RSPerStack = 0.25f;
 
+    public static Player instance;
+    private void Awake() 
+    {
+        instance = this;
+    }
+
 
     // Start is called before the first frame update
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        playerColliderBox = GetComponent<BoxCollider2D>();
         currentHealth = maxHealth;
 
         modifiers = new Dictionary<Powerup, int>();
@@ -55,7 +64,6 @@ public class Player : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -79,9 +87,6 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            Destroy(this.gameObject);
-
-            Debug.Log("Bullet hit");
             TakeDamage(collision.gameObject.GetComponent<Enemy>().damage);
         }
         if (currentHealth <= 0)

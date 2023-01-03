@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 1012128389178664079}
   m_Layer: 6
   m_Name: Terminux
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  exp: 99
   damage: 100
   player: {fileID: 0}
   bulletPrefab: {fileID: 2917989733512744557, guid: 3e7da6a02f7873a4083ddd7765cb57a4, type: 3}

@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 7911374174317717224}
   m_Layer: 6
   m_Name: Trojan
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,7 +388,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  exp: 5
   damage: 1
+  player: {fileID: 0}
   bulletPrefab: {fileID: 2917989733512744557, guid: 3e7da6a02f7873a4083ddd7765cb57a4, type: 3}
   bulletForce: 20
 --- !u!61 &-5627389623057225735
