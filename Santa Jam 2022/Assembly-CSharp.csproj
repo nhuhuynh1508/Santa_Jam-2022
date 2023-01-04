@@ -36,8 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ProgressBar.cs" />
      <Compile Include="Assets\Scripts\Enemies\Adware.cs" />
      <Compile Include="Assets\Scripts\TrojanBullet.cs" />
+     <Compile Include="Assets\Scripts\ExpBar.cs" />
      <Compile Include="Assets\Scripts\Player\RPlayer.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\MovementAnimation.cs" />
@@ -50,8 +52,7 @@
      <Compile Include="Assets\Scripts\RSkillBulletMovement.cs" />
      <Compile Include="Assets\Scripts\Enemies\Trojan.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemySpawner.cs" />
-     <Compile Include="Assets\Scripts\ProgressBar.cs" />
-     <Compile Include="Assets\Scripts\ExpBar.cs" />
+     <Compile Include="Assets\Scripts\Enemies\FireLaser.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Unity\2021.3.8f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

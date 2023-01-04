@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
         rb2D.MovePosition(rb2D.position + movement * moveSpeed * speedModifier * Time.fixedDeltaTime);
     }
 
-    void TakeDamage(float Damage)
+    public void TakeDamage(float Damage)
     {
         currentHealth -= Damage;
 

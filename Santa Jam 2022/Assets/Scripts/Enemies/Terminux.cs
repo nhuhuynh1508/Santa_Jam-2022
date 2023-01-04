@@ -9,6 +9,8 @@ public class Terminux : Enemy
 
     public Animator animator;
 
+    private Rigidbody2D playerRB;
+
     [Header("Shoot Phase")]
     public float secondsPerShootPhase = 10f;
     private float secondsToShootPhase = 10f;
@@ -19,7 +21,7 @@ public class Terminux : Enemy
     private float secondsToShoot = 0f;
     public float bulletOffsets;
 
-    [Header("")]
+    [Header("Basic Info")]
     public Transform center;
 
     public Terminux() : base(1f, 300f, 100f, 99f)
@@ -29,7 +31,7 @@ public class Terminux : Enemy
 
     public override void _Start()
     {
-        
+        playerRB = player.GetComponent<Rigidbody2D>();
     }
 
     public override void _Update()
@@ -69,6 +71,9 @@ public class Terminux : Enemy
             angle = -angle;
 
         center.rotation = Quaternion.Euler(0, 0, angle);
+
+        // Special attack
+        
     }
 
     public void Shoot()
