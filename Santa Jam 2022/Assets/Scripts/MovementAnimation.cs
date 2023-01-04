@@ -8,6 +8,8 @@ public class MovementAnimation : MonoBehaviour
     public float bodyRotateSpeed;
     public GameObject barrel;
 
+    public GameObject muzzleFlash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +26,16 @@ public class MovementAnimation : MonoBehaviour
 
         Vector3 angles = body.transform.rotation.eulerAngles;
         body.transform.rotation = Quaternion.Euler(0, 0, angles.z - bodyRotateSpeed * Time.deltaTime);
+    }
+
+    public void OnBulletShot()
+    {
+        muzzleFlash.SetActive(true);
+        Invoke("SetMuzzleFlashOff", 0.05f);
+    }
+
+    private void SetMuzzleFlashOff()
+    {
+        muzzleFlash.SetActive(false);
     }
 }

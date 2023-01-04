@@ -11,6 +11,7 @@ using UnityEngine;
 public class RPlayer : Player
 {
     public Transform firePoint;
+    public MovementAnimation movementAnimation;
 
     [Header("Default")]
     public GameObject bulletPrefab;
@@ -102,6 +103,8 @@ public class RPlayer : Player
             rb2D.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
             Destroy(bullet, 6);
         }
+
+        movementAnimation.OnBulletShot();
     }
 
     void UseSkill()
@@ -114,6 +117,8 @@ public class RPlayer : Player
             rb2D.AddForce(RotatedVector2(firePoint.up, angle) * bulletForce, ForceMode2D.Impulse);
             Destroy(bullet, 4);
         }
+
+        movementAnimation.OnBulletShot();
     }
 
     Vector2 RotatedVector2(Vector2 v, float degrees)
