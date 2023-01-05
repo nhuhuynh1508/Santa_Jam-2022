@@ -11,15 +11,17 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
     protected Slider _slider;
+    private Player player;
     
     void Awake()
     {
+        player = FindObjectOfType<Player>();
         _slider = gameObject.GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _slider.value = Player.instance.currentHealth/100;
+        _slider.value = player.currentHealth / player.maxHealth;
     }
 }

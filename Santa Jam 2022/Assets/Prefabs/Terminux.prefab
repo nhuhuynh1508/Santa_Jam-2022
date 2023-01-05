@@ -475,10 +475,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2917989733512744557, guid: 3e7da6a02f7873a4083ddd7765cb57a4, type: 3}
   bulletForce: 8
   animator: {fileID: 1012128389178664079}
-  secondsPerShootPhase: 10
-  bulletsPerShot: 10
-  shotPerPhase: 9
-  secondsPerShot: 0.38
+  secondsPerShootPhase: 6
+  bulletsPerShot: 12
+  shotPerPhase: 5
+  secondsPerShot: 0.7
   bulletOffsets: 2.5
   center: {fileID: 6659420982544488106}
 --- !u!95 &1012128389178664079

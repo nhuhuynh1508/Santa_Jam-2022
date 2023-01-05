@@ -19,7 +19,6 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject terminuxPrefab;
 
-
     [Header("What To Spawn")]
     public GroupInfo[] pre10;
     public GroupInfo[] pre20;
@@ -68,35 +67,30 @@ public class EnemySpawner : MonoBehaviour
     [Header("Others")]
     [SerializeField]
     private GameObject enemiesContainer;
-    /*
-    [SerializeField]
-    public int spawnCount = 4;
-    private float spawnTime = 3f;
-    private float spawnDelay = 1f;
 
-    private int remainingEnemies = 0;
-
-    public static EnemySpawner instance;
-    */
-    private bool isTerminTime = false;
+    private bool bossSpawned = false;
 
 
     private void Update()
     {
-        difficulty += Time.deltaTime;
+        if (!bossSpawned)
+        {
+            difficulty += Time.deltaTime;
+        }
 
         secondsToNextWave -= Time.deltaTime;
         if (secondsToNextWave <= 0)
         {
             secondsToNextWave = secondsPerWave;
 
-            if (difficulty < 300)
+            if (difficulty < 10)
             {
                 groupsLeft += groupsPerWave;
             }
-            else
+            else if (!bossSpawned)
             {
-                isTerminTime = true;
+                SpawnBoss();
+                bossSpawned = true;
             }
 
             currentBiasedPositionIndex += 1;
@@ -106,11 +100,7 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        if (isTerminTime)
-        {
-            SpawnBoss();
-        }
-        else if (groupsLeft > 0)
+        if (groupsLeft > 0)
         {
             secondsToNextGroup -= Time.deltaTime;
             if (secondsToNextGroup <= 0)
@@ -197,68 +187,6 @@ public class EnemySpawner : MonoBehaviour
         return (Vector2)spawnPositions[currentBiasedPositionIndex].position + offsets;
     }
 
-    /*
-    private void Awake()
-    {
-        instance = this;
-    }
-
-    void Start()
-    {
-        StartCoroutine(SpawnObjects());
-    
-
-    private IEnumerator SpawnObjects()
-    {
-        WaitForSeconds wait = new(spawnDelay);
-
-        // Initial wait
-        yield return new WaitForSeconds(spawnTime);
-
-        for (int count = spawnCount; count > 0; --count)
-        {
-            Vector2 postospawn = new Vector2(UnityEngine.Random.Range(-5.5f, 5.5f), UnityEngine.Random.Range(-3.0f, 3.0f));
-            GameObject clone = Instantiate(spyWarePrefab, postospawn, transform.rotation);
-            clone.transform.parent = enemiesContainer.transform;
-
-            // Detect when an enemy gets destroyed
-            DestroyEventEmitter destroyEventEmitter = clone.AddComponent<DestroyEventEmitter>();
-            destroyEventEmitter.OnObjectDestroyedEvent += OnGameObjectDestroyed;
-            remainingEnemies++;
-
-            // Wait before next spawn
-            yield return wait;
-        }
-
-        Debug.Log("All the enemies have been instantiated!");
-    }
-
-    private void OnGameObjectDestroyed(DestroyEventEmitter emitter)
-    {
-        remainingEnemies--;
-        emitter.OnObjectDestroyedEvent -= OnGameObjectDestroyed;
-
-        Debug.Log("Remaining enemies: " + remainingEnemies);
-
-        if (remainingEnemies == 0)
-        {
-            Debug.Log("All enemies have been destroyed");
-        }
-    }
-
-
-    // EVENT CLASS
-    public class DestroyEventEmitter : MonoBehaviour
-    {
-        public delegate void OnObjectDestroyedEventHandler(DestroyEventEmitter emitter);
-        public event OnObjectDestroyedEventHandler OnObjectDestroyedEvent;
-        private void OnDestroy()
-        {
-            OnObjectDestroyedEvent?.Invoke(this);
-        }
-    }
-    */
-
     [Serializable]
     public struct GroupInfo
     {
@@ -268,35 +196,6 @@ public class EnemySpawner : MonoBehaviour
 }
 
 
-/*public class EnemySpawner : MonoBehaviour
-{
-    public GameObject enemyprefab;
 
-    [SerializeField]
-    private float spawntime;
-    private float spawndelay;
-
-    void Start()
-    {
-        StartCoroutine(spawnenemy(spawninterval, enemyprefab));
-    }
-
-    private ienumerator spawnenemy(float interval, gameobject enemy)
-    {
-        waitforseconds wait = new waitforseconds(spawndelay);
-
-        yield return new waitforseconds(interval);
-        gameobject newenemy = instantiate(enemy, new vector3(random.range(-5f, 5), random.range(-6f, 6f), 0), quaternion.identity);
-        startcoroutine(spawnenemy(interval, enemy));
-
-        //timer += time.deltatime;
-
-        //if (timer >= interval)
-        //{
-        //    timer = 0;
-        //    instantiate(enemyprefab, transform.position, transform.rotation);
-        //}
-    }
-}*/
 
 

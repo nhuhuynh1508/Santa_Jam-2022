@@ -13,10 +13,7 @@ public class GameManager : MonoBehaviour
 
     private Player player;
     private Rigidbody2D playerRB;
-    private float pushBackForce = 500.0f;
-
-    public const float BOUNDS_X_POSITION = 20.0f;
-    public const float BOUNDS_Y_POSITION = 10.0f;
+    //private float pushBackForce = 500.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +25,18 @@ public class GameManager : MonoBehaviour
         Physics2D.IgnoreLayerCollision(6, 8);
         Physics2D.IgnoreLayerCollision(8, 8);
 
+        Physics2D.IgnoreLayerCollision(11, 0);
+        Physics2D.IgnoreLayerCollision(11, 1);
+        Physics2D.IgnoreLayerCollision(11, 2);
+        Physics2D.IgnoreLayerCollision(11, 3);
+        Physics2D.IgnoreLayerCollision(11, 4);
+        Physics2D.IgnoreLayerCollision(11, 5);
+        Physics2D.IgnoreLayerCollision(11, 6);
+        Physics2D.IgnoreLayerCollision(11, 7);
+        Physics2D.IgnoreLayerCollision(11, 8);
+        Physics2D.IgnoreLayerCollision(11, 9);
+
+
         player = Player.instance;
         playerRB = player.GetComponent<Rigidbody2D>();
 
@@ -36,7 +45,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        BoundChecking();
+        //BoundChecking();
     }
 
     public void OnEnemyDie(Enemy enemy)
@@ -55,29 +64,29 @@ public class GameManager : MonoBehaviour
         powerupPicker.GetComponent<PowerupPicker>().OnLevelUp();
     }
 
-    private void BoundChecking()
-    {
-        Vector2 playerPos = player.transform.position;
-        int dir = 1;
+    //private void BoundChecking()
+    //{
+        //Vector2 playerPos = player.transform.position;
+        //int dir = 1;
 
-        if (Mathf.Abs(playerPos.x) >= BOUNDS_X_POSITION)
-        {
-            if (playerPos.x >= 0)
-                dir = -1;
-            else 
-                dir = 1;
-            playerRB.AddForce(transform.right * dir * pushBackForce);
-        }
+        //if (Mathf.Abs(playerPos.x) >= BOUNDS_X_POSITION)
+        //{
+        //    if (playerPos.x >= 0)
+        //        dir = -1;
+        //    else 
+        //        dir = 1;
+        //    playerRB.AddForce(transform.right * dir * pushBackForce);
+        //}
 
-        if (Mathf.Abs(playerPos.y) >= BOUNDS_Y_POSITION)
-        {
-            if (playerPos.y >= 0)
-                dir = -1;
-            else 
-                dir = 1;
-            playerRB.AddForce(transform.up * dir * pushBackForce);
-        }
-    }
+        //if (Mathf.Abs(playerPos.y) >= BOUNDS_Y_POSITION)
+        //{
+        //    if (playerPos.y >= 0)
+        //        dir = -1;
+        //    else 
+        //        dir = 1;
+        //    playerRB.AddForce(transform.up * dir * pushBackForce);
+        //}
+    //}
 
 
 

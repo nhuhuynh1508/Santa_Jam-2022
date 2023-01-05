@@ -12,12 +12,12 @@ public class Terminux : Enemy
     private Rigidbody2D playerRB;
 
     [Header("Shoot Phase")]
-    public float secondsPerShootPhase = 10f;
-    private float secondsToShootPhase = 10f;
-    public int bulletsPerShot = 8;
-    public int shotPerPhase = 10;
+    public float secondsPerShootPhase = 6f;
+    private float secondsToShootPhase = 3f;
+    public int bulletsPerShot = 10;
+    public int shotPerPhase = 5;
     private int shotLeft = 0;
-    public float secondsPerShot = 0.25f;
+    public float secondsPerShot = 0.5f;
     private float secondsToShoot = 0f;
     public float bulletOffsets;
 

@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
 
-    public float maxHealth = 100.0f;
+    public float maxHealth = 10.0f;
     public float currentHealth;
     
     protected Vector2 movement;
@@ -33,6 +33,9 @@ public class Player : MonoBehaviour
     public static float RSPerStack = 0.25f;
 
     public static Player instance;
+
+    
+
     private void Awake() 
     {
         instance = this;
@@ -88,6 +91,7 @@ public class Player : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             TakeDamage(collision.gameObject.GetComponent<Enemy>().damage);
+            Debug.Log(collision.gameObject.GetComponent<Enemy>().damage);
         }
         if (currentHealth <= 0)
         {
