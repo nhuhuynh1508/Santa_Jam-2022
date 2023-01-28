@@ -1,2 +1,2 @@
 # Game_Project
- For Santa Jam 2022
+This repository is for Santa Jam 2022
